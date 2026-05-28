@@ -25,10 +25,6 @@ export default function Navigation() {
     });
   }, [scrollY]);
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
-
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -117,6 +113,7 @@ export default function Navigation() {
                   <Link
                     key={link.name}
                     href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={`text-4xl font-display uppercase tracking-widest font-bold ${
                       isActive ? "text-primary-red" : "text-off-white"
                     }`}
@@ -127,6 +124,7 @@ export default function Navigation() {
               })}
               <Link 
                 href="/contact" 
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="mt-8 px-8 py-4 bg-off-white text-primary-black text-sm font-bold uppercase tracking-widest rounded-full"
               >
                 Start a Project

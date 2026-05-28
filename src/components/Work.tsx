@@ -6,7 +6,7 @@ import { projects } from "@/lib/projects";
 import Link from "next/link";
 import Image from "next/image";
 
-function ProjectCard({ project, index }: { project: typeof projects[0], index: number }) {
+function ProjectCard({ project }: { project: typeof projects[0] }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -87,8 +87,8 @@ export default function Work() {
         </motion.div>
 
         <div className="flex flex-col gap-16 md:gap-32">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>
